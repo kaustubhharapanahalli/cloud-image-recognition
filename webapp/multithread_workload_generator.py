@@ -21,15 +21,19 @@ url = args.url
 def send_one_request(image_path):
     # Define http payload, "myfile" is the key of the http payload
     file = {"myfile": open(image_path,'rb')} 
-    print('file sent')
+    print('file sent : ',image_path)
     r = requests.post(url, files=file)
-    print('status',r)
+    print('status',r.status_code)
+    # print('return value ',r)
     # Print error message if failed
+
     if r.status_code != 200:
+        # print('enter if')
         print('sendErr: '+r.url)
     else :       
-        
-        image_msg = image_path.split('/')[1] + ' uploaded!'
+        # print('enter else',image_path)
+        image_msg = image_path.split('\\')[-1] + ' uploaded!'
+        # print('image_msg:',image_msg)
         msg = image_msg + '\n' + 'Classification result: ' + r.text
         print(msg)
 

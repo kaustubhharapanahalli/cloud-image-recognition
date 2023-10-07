@@ -110,7 +110,7 @@ def receive_and_delete_messages(queue_name,max_queue_messages,sqs_client,expecte
     return None
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
     # sendMessage(image_id,sqs_client)
 #     create_queue()
