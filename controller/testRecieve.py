@@ -15,7 +15,7 @@ response = sqs.receive_message(
     MessageAttributeNames=[
         'All'
     ],
-    VisibilityTimeout=0,
+    VisibilityTimeout=10,
     WaitTimeSeconds=0
 )
 
